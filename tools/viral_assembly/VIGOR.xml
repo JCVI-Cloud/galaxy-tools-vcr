@@ -1,0 +1,18 @@
+<tool id="VIGOR" name="VIGOR" version="1.0.0">
+  <description>Run VIGOR</description>
+  <command interpreter="perl">
+	/usr/local/tools/vigor/prod3/VIGOR3.pl -A -i $input.fasta -O /usr/local/tools/vigor/prod3/vigorscratch/output > /usr/local/tools/vigor/prod3/vigorscratch/output_log_data.log 2>&1
+  </command>
+  <inputs>
+	<param name="input" label="Input FASTA" type="data" format="fasta" />
+  </inputs>
+  <outputs>
+    <data format="fasta" name="output1" label="${tool.name} on ${on_string}" />
+  </outputs>
+  <help>
+
+**What it does**
+
+This tool runs VIGOR on the input set of fasta sequences.
+  </help>
+</tool>
