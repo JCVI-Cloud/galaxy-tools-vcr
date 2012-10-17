@@ -1,0 +1,38 @@
+<tool id="vir_assembly" name="Viral Assembly" version="1.0.0">
+  <description>Run Viral assembly</description>
+  <command interpreter="python">
+    viral_assembly.py --input_SFF=$input_SFF --input_Sanger=$input_Sanger --input_Solexa=$input_Solexa --input_Solexa_tp=$input_Solexa_tp --database=$database
+  </command>
+  <inputs>
+    <param name="input_SFF" label="454 reads" type="data" format="sff" />
+	<param name="input_Sanger" label="Sanger reads" type="data" format="fasta" />
+	<param name="input_Solexa" label="Solexa reads" type="data" format="fastq" />
+	<param name="input_Solexa_tp" label="Solexa trimpoints" type="data" format="tabular" />
+    <param name="database" label="Viral database" type="select">
+	  <option value="barda">barda</option>
+	  <option value="giv">giv</option>
+	  <option value="giv3">giv3</option>
+	  <option value="piv">piv</option>
+	  <option value="swiv">swiv</option>
+	  <option value="rtv">rtv</option>
+	  <option value="gcv">gcv</option>
+	  <option value="veev">veev</option>
+	  <option value="hadv">hadv</option>
+	  <option value="mpv">mpv</option>
+	  <option value="norv">norv</option>
+	  <option value="vzv">vzv</option>
+	  <option value="rsv">rsv</option>
+	  <option value="jev">jev</option>
+	  <option value="yfv">yfv</option>
+    </param>
+  </inputs>
+  <outputs>
+    <data format="fasta" name="output1" label="${tool.name} on ${on_string}" />
+  </outputs>
+  <help>
+
+**What it does**
+
+This tool uses vir-assembly-pipeline.sh to run viral assembly and consensus sequence generation on the input sequence data.
+  </help>
+</tool>
