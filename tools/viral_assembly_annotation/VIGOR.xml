@@ -1,0 +1,18 @@
+<tool id="VIGOR" name="VIGOR" version="1.0.0">
+  <description>Run VIGOR</description>
+  <command interpreter="python">
+    VIGOR.py $input $output_txt
+  </command>
+  <inputs>
+    <param name="input" label="Input FASTA" type="data" format="fasta" />
+  </inputs>
+  <outputs>
+    <data format="txt" name="output_txt" label="${tool.name} on ${on_string}" />
+  </outputs>
+  <help>
+
+**What it does**
+
+This tool runs VIGOR on the input set of fasta sequences.
+  </help>
+</tool>
