@@ -1,18 +1,24 @@
 <tool id="VIGOR" name="VIGOR" version="1.0.0">
-  <description>Run VIGOR</description>
-  <command interpreter="python">
-    VIGOR.py $input $output_txt
-  </command>
-  <inputs>
-    <param name="input" label="Input FASTA" type="data" format="fasta" />
-  </inputs>
-  <outputs>
-    <data format="txt" name="output_txt" label="${tool.name} on ${on_string}" />
-  </outputs>
-  <help>
-
+	<description>Run VIGOR</description>
+	<command interpreter="python">
+		VIGOR.py $input $outputALN $outputCDS $outputFS $outputPEP $outputRPT $outputSTATS $outputTBL
+	</command>
+	<inputs>
+		<param name="input" label="Input FASTA" type="data" format="fasta" />
+	</inputs>
+	<outputs>
+		<data format="txt" name="outputALN" label="ALN from ${tool.name} on ${on_string}" />
+		<data format="fasta" name="outputCDS" label="CDS from ${tool.name} on ${on_string}" />
+		<data format="txt" name="outputFS" label="FS from ${tool.name} on ${on_string}" />
+		<data format="fasta" name="outputPEP" label="PEP from ${tool.name} on ${on_string}" />
+		<data format="txt" name="outputRPT" label="RPT from ${tool.name} on ${on_string}" />
+		<data format="txt" name="outputSTATS" label="STATS from ${tool.name} on ${on_string}" />
+		<data format="txt" name="outputTBL" label="TBL from ${tool.name} on ${on_string}" />
+	</outputs>
+	
+	<help>
 **What it does**
 
 This tool runs VIGOR on the input set of fasta sequences.
-  </help>
+	</help>
 </tool>
