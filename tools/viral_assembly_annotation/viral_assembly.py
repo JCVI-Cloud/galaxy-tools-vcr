@@ -18,7 +18,7 @@ def __prepare_input__(draftFilename,finalFilename,finalDir):
 
 def __main__():
 	# Parse the command line options
-	(input_454,input_Sanger,input_Solexa,input_Solexa_tp,database,output_Fasta) = sys.argv[1:]
+	(input_454,input_Sanger,input_Solexa,input_Solexa_tp,database,outputFasta) = sys.argv[1:]
 	
 	# Copy the input files to the VHTNGS location. If an input file was not given, create an empty dummy file as a replacement.
 	inputDir = "/usr/local/VHTNGS"
@@ -28,9 +28,11 @@ def __main__():
 	input_Solexa_ready = __prepare_input__(input_Solexa,"input_Solexa.fastq",inputDir)
 	input_Solexa_tp_ready = __prepare_input__(input_Solexa_tp,"input_Solexa.fastq.trimpoints",inputDir)
 	
-	command = "/usr/local/VHTNGS/vir-assembly-pipeline.sh %s %s %s %s %s %s" % (input_454_ready,input_Sanger_ready,input_Solexa_ready,input_Solexa_tp_ready,database,output_Fasta)
-	#os.system("echo '>\n%s' >> %s" % (command,output_Fasta))
-	os.system("sudo mv /usr/local/VHTNGS/output.fasta %s" % output_Fasta)
+	command = "/usr/local/VHTNGS/vir-assembly-pipeline.sh %s %s %s %s %s" % (input_454_ready,input_Sanger_ready,input_Solexa_ready,input_Solexa_tp_ready,database)
+	virAssemblyOutput = "/usr/local/VHTNGS/project/mapping/sample_hybrid_edited_refs_consensus.fasta"
+	os.system("sudo %s" % command)
+	os.system("sudo chmod 777 %s" % virAssemblyOutput)
+	os.system("sudo cp %s %s" % (virAssemblyOutput,outputFasta))
 
 if __name__=="__main__": 
   __main__()
