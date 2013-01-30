@@ -423,6 +423,10 @@
     <tool file="vcf_tools/filter.xml" />
     <tool file="vcf_tools/extract.xml" />
   </section>
+  <section name="Viral Assembly and Annotation" id="viral_assembly_annotation">
+    <tool file="viral_assembly_annotation/viral_assembly.xml" />
+    <tool file="viral_assembly_annotation/VIGOR.xml" />
+  </section>
   <section name="EMBOSS" id="EMBOSSLite">
     <tool file="emboss_5/emboss_antigenic.xml" />
     <tool file="emboss_5/emboss_backtranseq.xml" />
