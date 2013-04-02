@@ -10,10 +10,10 @@ def __prepare_input__(draftFilename,finalFilename,finalDir):
 	result = "%s/%s" % (finalDir,finalFilename)
 	
 	if draftFilename == "None":
-		subprocess.call("rm -f %s" % result, shell=True)
-		subprocess.call("touch %s" % result, shell=True)
+		subprocess.check_call("rm -f %s" % result, shell=True)
+		subprocess.check_call("touch %s" % result, shell=True)
 	else:
-		subprocess.call("cp %s %s" % (draftFilename,result), shell=True)
+		subprocess.check_call("cp %s %s" % (draftFilename,result), shell=True)
 	
 	return result
 
@@ -31,8 +31,8 @@ def __main__():
 	# Execute the viral assembly pipeline, then copy final consensus FASTA into expected galaxy history item outputFasta.
 	virAssemblyCommand = "/usr/local/VHTNGS/vir-assembly-pipeline.sh %s %s %s %s %s %s" % (input_454_ready,input_Sanger_ready,input_Solexa_ready,input_Solexa_tp_ready,database,currentDir)
 	virAssemblyOutput = "%s/mapping/sample_hybrid_edited_refs_consensus.fasta" % currentDir
-	subprocess.call(virAssemblyCommand, shell=True)
-	subprocess.call("cp %s %s" % (virAssemblyOutput,outputFasta), shell=True)
+	subprocess.check_call((virAssemblyCommand,), shell=True)
+	subprocess.check_call("cp %s %s" % (virAssemblyOutput,outputFasta), shell=True)
 
 if __name__=="__main__": 
   __main__()
