@@ -1,19 +1,20 @@
 <tool id="VIGOR" name="VIGOR" version="1.0.0">
 	<description>Run VIGOR</description>
 	<command interpreter="python">
-		VIGOR.py $input $outputALN $outputCDS $outputFS $outputPEP $outputRPT $outputSTATS $outputTBL
+		VIGOR.py $input $outputALN $outputCDS $outputFS $outputPEP $outputRPT $outputSTATS $outputTBL $out_vcb_jbrowse ${out_vcb_jbrowse.extra_files_path}
 	</command>
 	<inputs>
 		<param name="input" label="Input FASTA" type="data" format="fasta" />
 	</inputs>
 	<outputs>
-		<data format="txt" name="outputALN" label="ALN from ${tool.name} on ${on_string}" />
-		<data format="fasta" name="outputCDS" label="CDS from ${tool.name} on ${on_string}" />
-		<data format="txt" name="outputFS" label="FS from ${tool.name} on ${on_string}" />
-		<data format="fasta" name="outputPEP" label="PEP from ${tool.name} on ${on_string}" />
-		<data format="txt" name="outputRPT" label="RPT from ${tool.name} on ${on_string}" />
-		<data format="txt" name="outputSTATS" label="STATS from ${tool.name} on ${on_string}" />
-		<data format="txt" name="outputTBL" label="TBL from ${tool.name} on ${on_string}" />
+		<data format="txt" name="outputALN" label="ALN of ${tool.name} on ${on_string}" />
+		<data format="fasta" name="outputCDS" label="CDS of ${tool.name} on ${on_string}" />
+		<data format="txt" name="outputFS" label="FS of ${tool.name} on ${on_string}" />
+		<data format="fasta" name="outputPEP" label="PEP of ${tool.name} on ${on_string}" />
+		<data format="txt" name="outputRPT" label="RPT of ${tool.name} on ${on_string}" />
+		<data format="txt" name="outputSTATS" label="STATS of ${tool.name} on ${on_string}" />
+		<data format="txt" name="outputTBL" label="TBL of ${tool.name} on ${on_string}" />
+		<data format="html" name="out_vcb_jbrowse" label="JBrowse of ${tool.name} on ${on_string}" />
 	</outputs>
 	
 	<help>
