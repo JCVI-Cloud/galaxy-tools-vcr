@@ -9,21 +9,21 @@
 	<param name="input_Solexa" label="Solexa reads" type="data" format="fastq" optional="true"/>
 	<param name="input_Solexa_tp" label="Solexa trimpoints" type="data" format="tabular" optional="true"/>
     <param name="database" label="Viral database" type="select">
-	  <option value="barda">barda</option>
-	  <option value="giv">giv</option>
-	  <option value="giv3">giv3</option>
-	  <option value="piv">piv</option>
-	  <option value="swiv">swiv</option>
-	  <option value="rtv">rtv</option>
-	  <option value="gcv">gcv</option>
-	  <option value="veev">veev</option>
-	  <option value="hadv">hadv</option>
-	  <option value="mpv">mpv</option>
-	  <option value="norv">norv</option>
-	  <option value="vzv">vzv</option>
-	  <option value="rsv">rsv</option>
-	  <option value="jev">jev</option>
-	  <option value="yfv">yfv</option>
+	  <option value="barda">Barda</option>
+	  <option value="giv">Human Seasonal Influenza A</option>
+	  <option value="giv3">Avian Influenza A</option>
+	  <option value="piv">Swine Influenza A Virus</option>
+	  <option value="swiv">Human Influenza H1N1 2009 Pandemic</option>
+	  <option value="rtv">Rotovirus</option>
+	  <option value="gcv">Coronavirus</option>
+	  <option value="veev">Venezuelan Equine Encephalitis Virus</option>
+	  <option value="hadv">Human Adenovirus</option>
+	  <option value="mpv">Metapneumovirus</option>
+	  <option value="norv">Norovirus</option>
+	  <option value="vzv">Varicella-zoster</option>
+	  <option value="rsv">Respiratory syncytial virus</option>
+	  <option value="jev">Japanese Encephalitis Virus</option>
+	  <option value="yfv">Yellow Fever Virus</option>
     </param>
   </inputs>
   <outputs>
