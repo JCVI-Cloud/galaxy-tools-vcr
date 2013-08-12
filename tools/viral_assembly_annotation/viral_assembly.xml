@@ -1,14 +1,13 @@
 <tool id="vir_assembly" name="Viral Assembly" version="1.0.0">
   <description>Run Viral assembly</description>
   <command interpreter="python">
-    viral_assembly.py $input_454 $input_Sanger $input_Solexa $input_Solexa_tp $database $output_Fasta
+    viral_assembly.py $input_454 $input_Sanger $input_Solexa $database $output_Fasta
   </command>
   <inputs>
     <param name="input_454" label="454 reads" type="data" format="sff"/>
 	<param name="input_Sanger" label="Sanger reads" type="data" format="fasta" optional="true" />
 	<param name="input_Solexa" label="Solexa reads" type="data" format="fastq" optional="true"/>
-	<param name="input_Solexa_tp" label="Solexa trimpoints" type="data" format="tabular" optional="true"/>
-    <param name="database" label="Viral database" type="select">
+	<param name="database" label="Viral database" type="select">
 	  <option value="barda">Barda</option>
 	  <option value="giv">Human Seasonal Influenza A</option>
 	  <option value="giv3">Avian Influenza A</option>
