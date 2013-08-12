@@ -4,7 +4,7 @@
     viral_assembly.py $input_454 $input_Sanger $input_Solexa $input_Solexa_tp $database $output_Fasta
   </command>
   <inputs>
-    <param name="input_454" label="454 reads" type="data" format="sff" optional="true"/>
+    <param name="input_454" label="454 reads" type="data" format="sff"/>
 	<param name="input_Sanger" label="Sanger reads" type="data" format="fasta" optional="true" />
 	<param name="input_Solexa" label="Solexa reads" type="data" format="fastq" optional="true"/>
 	<param name="input_Solexa_tp" label="Solexa trimpoints" type="data" format="tabular" optional="true"/>
