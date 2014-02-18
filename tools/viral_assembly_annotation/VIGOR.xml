@@ -1,12 +1,13 @@
 <tool id="VIGOR" name="VIGOR" version="1.0.0">
 	<description>Run VIGOR</description>
 	<command interpreter="python">
-		VIGOR.py $input $outputALN $outputCDS $outputFS $outputPEP $outputRPT $outputSTATS $outputTBL $out_vcb_jbrowse ${out_vcb_jbrowse.extra_files_path}
+		VIGOR.py $input $outputFASTA $outputALN $outputCDS $outputFS $outputPEP $outputRPT $outputSTATS $outputTBL $out_vcb_jbrowse ${out_vcb_jbrowse.extra_files_path}
 	</command>
 	<inputs>
 		<param name="input" label="Input FASTA" type="data" format="fasta" />
 	</inputs>
 	<outputs>
+		<data format="fasta" name="outputFASTA" label="New FASTA input of ${tool.name} on ${on_string}" />	
 		<data format="txt" name="outputALN" label="ALN of ${tool.name} on ${on_string}" />
 		<data format="fasta" name="outputCDS" label="CDS of ${tool.name} on ${on_string}" />
 		<data format="txt" name="outputFS" label="FS of ${tool.name} on ${on_string}" />
@@ -20,6 +21,41 @@
 	<help>
 **What it does**
 
-This tool runs VIGOR on the input set of fasta sequences.
+This tool runs VIGOR on the input set of fasta sequences and returns the VIGOR outputs and an interactive JBrowse visualization of the annontation.
+
+For the input FASTA file to be valid, the first word of each header (whitespace delimited) must meet the following conditions:
+
+ - Maximum length of 22 characters.
+ - Unique from all other headers' first words.
+ - Not have any pipes symbols ("|").
+
+If at least one header does not meet these conditions, then ALL headers will have the following inserted into the header as the new first word:
+
+S{zeropadded numerical tag}_{beginning portion of original first word (any pipes replaced with underscores) so new word is 22 characters long}
+
+**Example**:
+
+Original FASTA::
+
+	>gi|556503834|ref|NC_000913.3| Escherichia coli str. K-12 substr. MG1655
+	ATATAT
+	>Novel_E_coli_in_house_01 New E. coli sequence recently discovered.
+	ATATAT
+	>B_holmseii_F627
+	ATATAT
+
+The first header violates the conditions (over 22 characters and has pipes).
+
+New FASTA::
+
+	>S1_gi_556503834_ref_NC gi|556503834|ref|NC_000913.3| Escherichia coli str. K-12 substr. MG1655
+	ATATAT
+	>S2_Novel_E_coli_in_hou Novel_E_coli_in_house_01 New E. coli sequence recently discovered.
+	ATATAT
+	>S3_B_holmseii_F627 B_holmseii_F627
+	ATATAT
+
+The new FASTA input will appear as one of the outputs. If no header changes were needed, this output FASTA will be identical to the input FASTA.
+
 	</help>
 </tool>
