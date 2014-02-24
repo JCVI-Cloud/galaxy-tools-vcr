@@ -1,12 +1,14 @@
 <tool id="vir_assembly" name="Viral Assembly" version="1.0.0">
   <description>Run Viral assembly</description>
   <command interpreter="python">
-    viral_assembly.py $input_454 $input_Sanger $input_Solexa $database $output_Fasta
+    viral_assembly.py $input_Illumina $input_Iontorrent $input_Sanger_seqs $input_Sanger_qual $input_454 $database $output_Fasta
   </command>
   <inputs>
-    <param name="input_454" label="454 reads" type="data" format="sff"/>
-	<param name="input_Sanger" label="Sanger reads" type="data" format="fasta" optional="true" />
-	<param name="input_Solexa" label="Solexa reads" type="data" format="fastq" optional="true"/>
+	<param name="input_Illumina" label="Illumina reads in FASTQ Sanger quality format (offset-33)" type="data" format="fastqsanger" optional="true"/>  
+	<param name="input_Iontorrent" label="Iontorrent reads in FASTQ Sanger quality format (offset-33)" type="data" format="fastqsanger" optional="true"/>
+	<param name="input_Sanger_seqs" label="Sanger reads (Sanger quality scores must also be provided)" type="data" format="fasta" optional="true" />
+	<param name="input_Sanger_qual" label="Sanger quality scores (Sanger reads must also be provided)" type="data" format="qual" optional="true" />
+	<param name="input_454" label="454 reads" type="data" format="sff" optional="true"/>
 	<param name="database" label="Viral database" type="select">
 	  <option value="barda">Barda</option>
 	  <option value="giv">Human Seasonal Influenza A</option>
@@ -32,6 +34,6 @@
 
 **What it does**
 
-This tool uses vir-assembly-pipeline.sh to run viral assembly and consensus sequence generation on the input sequence data.
+This tool uses viral_assembly_pipeline.py to run viral assembly and consensus sequence generation on the input sequence data.
   </help>
 </tool>
