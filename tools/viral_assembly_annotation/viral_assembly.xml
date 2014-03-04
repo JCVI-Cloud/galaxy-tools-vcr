@@ -6,9 +6,9 @@
   <inputs>
 	<param name="input_Illumina" label="Illumina reads in FASTQ Sanger quality format (offset-33)" type="data" format="fastqsanger" optional="true"/>  
 	<param name="input_Iontorrent" label="Iontorrent reads in FASTQ Sanger quality format (offset-33)" type="data" format="fastqsanger" optional="true"/>
-	<param name="input_Sanger_seqs" label="Sanger reads (Sanger quality scores must also be provided)" type="data" format="fasta" optional="true" />
-	<param name="input_Sanger_qual" label="Sanger quality scores (Sanger reads must also be provided)" type="data" format="qual" optional="true" />
-	<param name="input_454" label="454 reads" type="data" format="sff" optional="true"/>
+	<param name="input_Sanger_seqs" label="Sanger reads in FASTA (Sanger quality scores must also be provided)" type="data" format="fasta" optional="true" />
+	<param name="input_Sanger_qual" label="Sanger quality scores in QUAL (Sanger reads must also be provided)" type="data" format="qual" optional="true" />
+	<param name="input_454" label="454 reads in SFF" type="data" format="sff" optional="true"/>
 	<param name="database" label="Viral database" type="select">
 	  <option value="barda">Barda</option>
 	  <option value="giv">Human Seasonal Influenza A</option>
